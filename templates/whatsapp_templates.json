@@ -1,0 +1,37 @@
+{
+  "post_treatment_followup": {
+    "name": "post_treatment_followup",
+    "language": "en",
+    "category": "UTILITY",
+    "body": "Namaste {{1}}! 🙏\n\nThank you for visiting {{2}} for your {{3}} treatment. We hope you're feeling well!\n\nHere are your post-treatment care tips:\n✅ {{4}}\n\nIf you have any questions, call us at {{5}}.\n\nWishing you continued wellness! 🌿",
+    "params": ["patient_name", "clinic_name", "treatment_name", "care_tips", "clinic_phone"]
+  },
+  "review_request": {
+    "name": "review_request_gentle",
+    "language": "en",
+    "category": "MARKETING",
+    "body": "Hi {{1}}! 🙏\n\nWe're glad you chose {{2}} for your wellness journey. Your experience matters to us!\n\nWould you take a moment to share your feedback? It helps others discover authentic Ayurvedic care.\n\n⭐ Leave a review: {{3}}\n\nThank you for being part of our wellness community! 🌿",
+    "params": ["patient_name", "clinic_name", "review_link"]
+  },
+  "seasonal_wellness": {
+    "name": "seasonal_wellness_tip",
+    "language": "en",
+    "category": "MARKETING",
+    "body": "Namaste {{1}}! 🌿\n\n{{2}} is here — and your body knows it!\n\nAs per Ayurvedic Ritucharya, here's your seasonal wellness tip:\n\n🍃 {{3}}\n\n{{4}} is offering special {{5}} treatments this season.\n\n📞 Book: {{6}}\n🌐 Learn more: {{7}}",
+    "params": ["patient_name", "season_name", "wellness_tip", "clinic_name", "treatment_name", "clinic_phone", "website_link"]
+  },
+  "appointment_reminder": {
+    "name": "appointment_reminder",
+    "language": "en",
+    "category": "UTILITY",
+    "body": "Hi {{1}}, this is a gentle reminder about your appointment at {{2}}.\n\n📅 Date: {{3}}\n⏰ Time: {{4}}\n🏥 Treatment: {{5}}\n\nPre-visit tips:\n• Eat a light meal 2 hours before\n• Wear comfortable clothing\n• Arrive 10 minutes early\n\nSee you soon! 🙏",
+    "params": ["patient_name", "clinic_name", "date", "time", "treatment_name"]
+  },
+  "referral_program": {
+    "name": "referral_invite",
+    "language": "en",
+    "category": "MARKETING",
+    "body": "Hi {{1}}! 🌿\n\nThank you for trusting {{2}} with your wellness.\n\nShare the gift of Ayurveda! Refer a friend and both of you get:\n🎁 {{3}}\n\nSimply share this link: {{4}}\n\nYour referral helps us grow our wellness community. 🙏",
+    "params": ["patient_name", "clinic_name", "referral_offer", "referral_link"]
+  }
+}

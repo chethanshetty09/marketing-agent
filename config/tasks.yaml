@@ -1,0 +1,133 @@
+# Task definitions for the multi-agent marketing system
+# These define the workflows that the crew executes
+
+# ========== DAILY TASKS ==========
+
+daily_content_creation:
+  description: >
+    Create today's social media content for {clinic_name}.
+    1. Check the current Ayurvedic season (Ritu) and align content themes.
+    2. Research trending wellness topics and local keywords for {city}.
+    3. Create 1 Instagram post (caption + hashtags) and 1 Facebook post.
+    4. If it's a blog day (Mon/Thu), draft a 800-word SEO article outline.
+    Output the content with suggested posting times (IST).
+  agent: content_sage
+  expected_output: >
+    JSON with: instagram_post (caption, hashtags, image_prompt),
+    facebook_post (text, link), blog_outline (if applicable),
+    keywords_targeted, suggested_post_times
+
+daily_patient_followup:
+  description: >
+    Run the daily patient engagement cycle for {clinic_name}:
+    1. Identify patients who completed treatment in the last 48 hours.
+    2. Draft personalized WhatsApp follow-up messages for each.
+    3. Check for patient birthdays/anniversaries this week — send wishes.
+    4. Review the content from Content Sage and schedule distribution.
+    Ensure all messages are warm, personalized, and provide genuine wellness value.
+  agent: community_weaver
+  expected_output: >
+    JSON with: followup_messages (list of patient messages drafted),
+    birthday_wishes (list), content_distributed (social shares scheduled),
+    campaign_status (any active campaigns and their metrics)
+
+daily_review_scan:
+  description: >
+    Perform the hourly reputation monitoring cycle for {clinic_name}:
+    1. Fetch all new Google Reviews since last scan.
+    2. Classify each review: positive (4-5 stars), neutral (3), negative (1-2).
+    3. Draft responses for ALL unresponded reviews.
+    4. Flag negative reviews as URGENT for immediate attention.
+    5. Identify reviews with strong testimonial potential.
+    Maintain the clinic's compassionate, professional voice in all responses.
+  agent: reputation_guard
+  expected_output: >
+    JSON with: new_reviews (list with rating, text, sentiment),
+    drafted_responses (list of review_id + response_text),
+    urgent_flags (negative reviews needing immediate attention),
+    testimonial_candidates (reviews suitable for marketing use)
+
+# ========== WEEKLY TASKS ==========
+
+weekly_strategy_brief:
+  description: >
+    Produce the weekly marketing strategy brief for {clinic_name}:
+    1. Pull Google Analytics data for the past 7 days.
+    2. Pull Search Console keyword performance.
+    3. Analyze review trends and sentiment patterns.
+    4. Evaluate which content performed best and worst.
+    5. Check competitor activity (if data available).
+    6. Produce a strategy brief with specific action items for each agent.
+    7. Recommend budget allocation changes if needed.
+    Format as an executive summary a clinic owner can read in 5 minutes.
+  agent: insight_oracle
+  expected_output: >
+    Structured strategy brief with: key_metrics_snapshot,
+    top_performing_content, attention_areas, action_items_per_agent
+    (content_sage_tasks, community_weaver_tasks, reputation_guard_tasks),
+    budget_recommendations, competitor_insights
+
+weekly_content_calendar:
+  description: >
+    Plan next week's content calendar for {clinic_name}:
+    1. Review the Insight Oracle's strategy brief for priorities.
+    2. Align with current Ritucharya season and upcoming events.
+    3. Plan 7 social media posts (mix of educational, promotional, engagement).
+    4. Plan 2 blog articles with target SEO keywords.
+    5. Create 2 Instagram Reel concepts with scripts.
+    Ensure variety in content types and treatment areas covered.
+  agent: content_sage
+  expected_output: >
+    Weekly calendar JSON with: day_by_day posts (platform, type, topic,
+    caption_draft, target_keyword, posting_time), blog_articles
+    (title, keywords, outline), reel_concepts (hook, script, CTA)
+  context:
+    - weekly_strategy_brief
+
+weekly_campaign_review:
+  description: >
+    Review and optimize all active campaigns for {clinic_name}:
+    1. Check open/click rates for email campaigns.
+    2. Review WhatsApp message delivery and read rates.
+    3. Evaluate referral program performance.
+    4. Plan next week's event promotion if applicable.
+    5. Suggest A/B tests for underperforming campaigns.
+  agent: community_weaver
+  expected_output: >
+    Campaign performance report with: email_metrics, whatsapp_metrics,
+    referral_metrics, optimization_suggestions, ab_test_ideas
+  context:
+    - weekly_strategy_brief
+
+# ========== MONTHLY TASKS ==========
+
+monthly_performance_report:
+  description: >
+    Produce the comprehensive monthly marketing performance report:
+    1. Month-over-month comparison of all key metrics.
+    2. Patient acquisition funnel analysis (awareness → booking → retention).
+    3. Channel ROI breakdown (organic, paid, social, email, WhatsApp, events).
+    4. Review velocity and sentiment trend analysis.
+    5. Content performance ranking (top 10 posts/articles by engagement).
+    6. Strategic recommendations for next month.
+    7. Budget optimization — where to increase and decrease spend.
+  agent: insight_oracle
+  expected_output: >
+    Comprehensive monthly report with: executive_summary,
+    metrics_comparison, funnel_analysis, channel_roi, review_trends,
+    top_content, strategic_recommendations, budget_plan
+
+monthly_content_calendar:
+  description: >
+    Plan the full month's content strategy:
+    1. Review monthly performance report insights.
+    2. Map content to Ritucharya seasonal calendar.
+    3. Plan 4 blog articles, 30 social posts, 8 Reel concepts.
+    4. Identify seasonal treatment promotions to highlight.
+    5. Plan 2 community event content campaigns.
+  agent: content_sage
+  expected_output: >
+    30-day content calendar with themed weeks, blog schedule,
+    social media grid plan, Reel concepts, event promotion plan
+  context:
+    - monthly_performance_report

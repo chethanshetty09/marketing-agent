@@ -1,0 +1,46 @@
+# Agent configuration — used for reference and dashboard display
+# Actual agent creation is in agents/*.py files
+
+content_sage:
+  name: "Content Sage"
+  sanskrit: "वाक्पटु"
+  emoji: "🪷"
+  schedule: "daily"
+  priority_tasks:
+    - "Generate 1 SEO blog post per week"
+    - "Create 7 social media posts per week"
+    - "Produce 2 Instagram Reels scripts per week"
+    - "Update seasonal content calendar monthly"
+
+community_weaver:
+  name: "Community Weaver"
+  sanskrit: "संगठक"
+  emoji: "🙏"
+  schedule: "daily"
+  priority_tasks:
+    - "Send post-treatment follow-ups within 48 hours"
+    - "Trigger seasonal wellness campaigns"
+    - "Manage monthly community event promotion"
+    - "Run referral program outreach"
+
+reputation_guard:
+  name: "Reputation Guard"
+  sanskrit: "यशरक्षक"
+  emoji: "🛡️"
+  schedule: "hourly"
+  priority_tasks:
+    - "Scan for new reviews every 2 hours"
+    - "Respond to negative reviews within 4 hours"
+    - "Send review requests to recent patients daily"
+    - "Curate weekly testimonial highlights"
+
+insight_oracle:
+  name: "Insight Oracle"
+  sanskrit: "दृष्टिदाता"
+  emoji: "🔮"
+  schedule: "weekly"
+  priority_tasks:
+    - "Produce weekly strategy brief every Monday"
+    - "Monthly performance dashboard update"
+    - "Quarterly competitor analysis"
+    - "Budget reallocation recommendations"
